@@ -1,0 +1,45 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Sirius Add</title>
+        <meta charset ="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href='css/bootstrap.min.css'/>
+    </head>
+    
+    <body>
+        
+        <div class="container">
+            <h1>Add a book</h1>
+               <div id="message"></div>
+            
+            <form action="#" method="get">
+                <div class="form-group">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" id="title" name="title" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="author" class="form-label">Author</label>
+                    <input type="text" id="author" name="author" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="year" class="form-label">Year</label>
+                    <input type="text" id="year" name="year" class="form-control"/>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="readingStatus" name="readingStatus" value = '1'> Read?
+                    </label>
+                </div>
+
+                <button type="button" id ="btn-add" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-plus"></span> Add</button>
+            </form>
+        </div>
+        
+        <script src="jquery-3.2.0.min.js"></script>
+        <script src="parse.min.js"></script>
+        <script src="form.js"></script>
+    </body>
+</html>

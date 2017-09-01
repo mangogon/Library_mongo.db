@@ -1,0 +1,124 @@
+<!DOctype html>
+<html>
+    <head>
+        <title>Sirius</title>
+        <meta charset ="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href='css/bootstrap.min.css'/>
+    </head>
+    <body>
+        <div class="container">
+            <h1>My Library</h1>
+            
+            <p><a href="form.html" class="btn btn-success">Add a book</a></p>
+            
+            <div id="message" class="alert alert-success"></div>
+            <form action="#" method="get" class="form-inline">
+                <div class="form-group">
+                    <input type="text" id="term" name="term" class="form-control"/>
+                    <button type="button" name="ok" id="search-btn" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+            <p></p>
+            <div id="results"></div>
+        <div id="detail"></div>
+        </div>
+        
+        
+        <script id ="message-template" type="text/x-handlebars-template">
+            <div class="message">Hello,<b>Vasylyna</b>!</div>
+        </script>
+
+        <script id="results-template" type="text/x-handlebars-template">
+            {{#if results}}
+                <div class ="alert alert-success"><b>Success</b>
+                    {{#if plural}}
+                        {{number}} results found.
+                    {{else}}
+                        {{number}} result found.
+                    {{/if}}
+                </div>
+
+            <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Reading Status</th>
+                </tr>
+            </thead>
+            <tbody id="results-rows">
+            {{#each results}}
+        <tr>
+            <td><a href="#" id ="book-{{this.id}}">
+                {{#if this.title}}
+                    {{this.title}}
+                {{else}}
+                    <i>(I'm invisible)</i>
+                {{/if}}
+            </a></td>
+            <td><i>{{this.author}}</i></td>
+            <td>{{#if this.readingStatus}}
+                <span class="glyphicon glyphicon-ok"></span>
+                {{/if}}
+            </td>
+
+            </tr>
+        {{/each}}
+            </tbody>
+            </table>
+{{else}}
+<div class="alert alert-danger"><b>Error!</b>sorry, no results found.</div>
+{{/if}}
+        </script>
+
+
+        <script id="detail-template" type="text/x-handlebars-template">
+<div clas="panel panel-default">
+    <div class ="panel-heading">
+        <h3 class="panel-title">
+            <span class="glyphicon glyphicon-book"></span>
+            {{title}}
+            </h3>
+            </div>
+    <div class="panel-body">
+        <table class="table">
+            <tr>
+                <th class="col-sm-2">Author</th>
+                <td>{{author}}</td>
+            </tr>
+            <tr>
+                <th>Year</th>
+                <td>{{year}}</td>
+            </tr>
+            <tr>
+                <th>Reading Status</th>
+                <td>{{#if readingStatus}}
+                    <span class="glyphicon glyphicon-ok"></span>
+                    {{/if}}
+            </td>
+            </tr>
+            </table>
+        <p>
+            <a href="{{url}}" class="btn btn-success" target="_blank">Search Google for<b>{{title}}</b>
+                <span class="glyphicon glyphicon-search"></span>
+            </a>
+            </p>
+
+
+            </div>
+
+
+
+            </div>
+        </script>
+
+
+        <script src="jquery-3.2.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="handlebars-v4.0.5.js"></script>
+        <script src="parse.min.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
